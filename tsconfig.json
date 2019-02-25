@@ -17,6 +17,10 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "path": ["./src/nools-polyfill"],
+      "fs": ["./src/nools-polyfill"]
+    }
   }
 }

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TextElements';
+  menuItems = [
+    {icon: 'home', label: 'Home', path: '/'},
+    {icon: 'search', label: 'Browse', path: '/search'},
+    {icon: 'edit', label: 'Create', path: '/editor'}
+  ];
+
+  constructor() {
+  }
+
 }

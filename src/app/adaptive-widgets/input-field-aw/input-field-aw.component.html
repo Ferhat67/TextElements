@@ -1,0 +1,5 @@
+<div class="form-group">
+  <label>{{label}}</label>
+  <input type="text" class="form-control" [(ngModel)]="value" [readOnly]="readonly" placeholder="{{placeholder}}">
+  <small *ngIf="showHelpText" class="form-text text-muted help">{{helpText}}</small>
+</div>

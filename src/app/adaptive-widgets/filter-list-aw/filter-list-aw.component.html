@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-12 col-md-4">
+    <div class="form-group">
+      <input type="search" [readOnly]="searchDisabled" class="form-control" placeholder="Search..." [(ngModel)]="searchTerm">
+    </div>
+  </div>
+</div>
+
+<table class="table table-hover" [class.table-dark]="darkTheme">
+  <tbody>
+    <tr *ngFor="let item of getListItems()">
+      <th scope="row">
+        <a [routerLink]="[item.path]">{{item.title}}</a>
+      </th>
+      <td *ngFor="let field of item.fields">{{field}}</td>
+      <td class="text-right">
+        <button class="btn" style="color:gray" (click)="onDelete.emit(item.title)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

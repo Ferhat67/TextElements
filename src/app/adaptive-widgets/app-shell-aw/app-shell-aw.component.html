@@ -1,0 +1,29 @@
+<div id="header" [ngClass]="classes.header">
+  <button class="btn btn-outline d-block d-md-none" [ngClass]="classes.toggle" (click)="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div id="title">{{title}}</div>
+</div>
+
+<div class="container-fluid h-100">
+  <div class="row  h-100">
+    <div id="sidebar" class="d-none d-md-block col-3 col-md-2 h-100" [ngClass]="classes.sidebar">
+
+      <div id="menu" class="list-group" *ngIf="menuMode == 'normal'" [ngClass]="classes.menu">
+        <a class="list-group-item list-group-item-action" [routerLink]="[item.path]" *ngFor="let item of getMenuItems()">
+          <i class="fas fa-{{item.icon}}"></i> {{item.label}}
+        </a>
+      </div>
+      <div id="menu-compact" class="btn-group-vertical" *ngIf="menuMode == 'compact'" [ngClass]="classes.menu">
+        <button class="btn btn-secondary" [routerLink]="[item.path]" *ngFor="let item of getMenuItems()">
+          <i class="fas fa-{{item.icon}}" style="font-size: larger"></i>
+        </button>
+      </div>
+
+    </div>
+    <div id="content" class="col-12 col-md-10 h-100" [ngClass]="classes.content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

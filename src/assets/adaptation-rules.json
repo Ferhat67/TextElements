@@ -1,0 +1,64 @@
+[
+  {
+    "name": "LEFTHANDED",
+    "condition": "c.user.handedness == 'left'",
+    "actions": [
+      {"name": "SET_MENU_POSITION", "params": { "position": "left" }, "target": "AppShellAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "RIGHTHANDED",
+    "condition": "c.user.handedness == 'right'",
+    "actions": [
+      {"name": "SET_MENU_POSITION", "params": { "position": "right" }, "target": "AppShellAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "DARKMODE",
+    "condition": "c.environment.brightness == 'low'",
+    "actions": [
+      {"name": "SET_DARK_THEME", "params": { "active": true }, "target": "AppShellAW", "scope":  []},
+      {"name": "SET_DARK_THEME", "params": { "active": true }, "target": "FilterListAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "LIGHTMODE",
+    "condition": "c.environment.brightness != 'low'",
+    "actions": [
+      {"name": "SET_DARK_THEME", "params": { "active": false }, "target": "AppShellAW", "scope":  []},
+      {"name": "SET_DARK_THEME", "params": { "active": false }, "target": "FilterListAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "OFFLINE",
+    "condition": "c.platform.online != true",
+    "actions": [
+      {"name": "SET_READONLY_MODE", "params": { "active": true }, "target": "InputFieldAW", "scope":  []},
+      {"name": "DISABLE_SEARCH", "params": { }, "target": "FilterListAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "ONLINE",
+    "condition": "c.platform.online == true",
+    "actions": [
+      {"name": "SET_READONLY_MODE", "params": { "active": false }, "target": "InputFieldAW", "scope":  []},
+      {"name": "ENABLE_SEARCH", "params": { }, "target": "FilterListAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "NEWUSER",
+    "condition": "c.user.experience < 60",
+    "actions": [
+      {"name": "SHOW_HELP_TEXT", "params": {}, "target": "InputFieldAW", "scope":  []},
+      {"name": "COMPACT_MODE", "params": { "active": false }, "target": "AppShellAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "EXPERIENCEDUSER",
+    "condition": "c.user.experience >= 60",
+    "actions": [
+      {"name": "HIDE_HELP_TEXT", "params": {}, "target": "InputFieldAW", "scope":  []},
+      {"name": "COMPACT_MODE", "params": { "active": true }, "target": "AppShellAW", "scope":  []}
+    ]
+  }
+]
